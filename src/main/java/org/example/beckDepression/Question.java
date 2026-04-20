@@ -10,4 +10,8 @@ public class Question {
     public Question(Map<String, Integer> answersAndScore) {
         this.answersAndScore = new LinkedHashMap<>(answersAndScore);
     }
+
+    public int getScoreForAnswer(String answer) {
+        return answersAndScore.get(answer);
+    }
 }
