@@ -3,6 +3,7 @@ package org.example.beckDepression;
 import org.junit.jupiter.api.Test;
 
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -45,4 +46,15 @@ public class QuestionTest {
         assertEquals(-1, question.getScoreForAnswer(answer));
     }
 
+    @Test
+    void shouldReturnListOfAnswersInOrder() {
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+        map.put("A", 0);
+        map.put("B", 1);
+        map.put("C", 2);
+        map.put("D", 3);
+        Question question = new Question(map);
+        List<String> answers = question.getAnswersList();
+        assertEquals(4, answers.size());
+    }
 }
