@@ -1,6 +1,8 @@
 package org.example.beckDepression;
 
+import java.util.ArrayList;
 import java.util.LinkedHashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Question {
@@ -13,5 +15,9 @@ public class Question {
 
     public int getScoreForAnswer(String answer) {
         return answersAndScore.getOrDefault(answer, -1);
+    }
+
+    public List<String> getAnswersList() {
+        return new ArrayList<>(answersAndScore.keySet());
     }
 }

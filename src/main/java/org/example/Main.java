@@ -164,7 +164,7 @@ public class Main {
                 q16, q17, q18, q19, q20,
                 q21);
         for (Question q : questions) {
-            System.out.println(q.);
+            System.out.println();
         }
     }
 }
