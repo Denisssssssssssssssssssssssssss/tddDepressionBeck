@@ -12,6 +12,6 @@ public class Question {
     }
 
     public int getScoreForAnswer(String answer) {
-        return answersAndScore.get(answer);
+        return answersAndScore.getOrDefault(answer, -1);
     }
 }
