@@ -33,4 +33,16 @@ public class QuestionTest {
         assertEquals(0, question.getScoreForAnswer(answer));
     }
 
+    @Test
+    void shouldReturnMinusOneForAnswer() {
+        Map<String, Integer> input = new LinkedHashMap<>();
+        input.put("A", 0);
+        input.put("B", 1);
+        input.put("C", 2);
+        input.put("D", 3);
+        Question question = new Question(input);
+        String answer = "E";
+        assertEquals(-1, question.getScoreForAnswer(answer));
+    }
+
 }
