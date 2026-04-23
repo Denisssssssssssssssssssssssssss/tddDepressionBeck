@@ -200,6 +200,6 @@ public class Main {
         }
 
         // итог
-        System.out.println("\nВаш итоговый балл: " + beckDepression.getScore());
+        System.out.println("\nРезультат: " + beckDepression.getResult());
     }
 }
