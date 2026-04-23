@@ -1,11 +1,9 @@
 package org.example;
-
 import org.example.beckDepression.BeckDepression;
 import org.example.beckDepression.Question;
-
-import java.util.ArrayList;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
@@ -163,8 +161,45 @@ public class Main {
                 q11, q12, q13, q14, q15,
                 q16, q17, q18, q19, q20,
                 q21);
+
+        Scanner scanner = new Scanner(System.in);
+
+        int questionNumber = 1;
+
         for (Question q : questions) {
-            System.out.println();
+
+            System.out.println("\nВопрос " + questionNumber);
+
+            List<String> answers = q.getAnswersList();
+
+            // вывод вариантов
+            for (int i = 0; i < answers.size(); i++) {
+                System.out.println((i + 1) + ". " + answers.get(i));
+            }
+
+            // ввод пользователя
+            int choice;
+            while (true) {
+                System.out.print("Выберите вариант (1-4): ");
+                choice = scanner.nextInt();
+
+                if (choice >= 1 && choice <= answers.size()) {
+                    break;
+                } else {
+                    System.out.println("Некорректный ввод, попробуйте снова.");
+                }
+            }
+
+            // получаем выбранный ответ
+            String selectedAnswer = answers.get(choice - 1);
+
+            // добавляем score
+            beckDepression.answer(q, selectedAnswer);
+
+            questionNumber++;
         }
+
+        // итог
+        System.out.println("\nВаш итоговый балл: " + beckDepression.getScore());
     }
 }

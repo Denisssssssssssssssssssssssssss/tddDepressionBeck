@@ -11,4 +11,5 @@ public class BeckDepression {
     public void answer(Question question, String answer) {
         this.score += question.getScoreForAnswer(answer);
     }
+
 }
