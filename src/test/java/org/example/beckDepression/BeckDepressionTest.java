@@ -65,4 +65,17 @@ public class BeckDepressionTest {
 
         assertEquals("лёгкая депрессия", beck.getResult());
     }
+    @Test
+    void shouldReturnModerateDepression() {
+        BeckDepression beck = new BeckDepression();
+
+        LinkedHashMap<String, Integer> map = new LinkedHashMap<>();
+        map.put("A", 25);
+
+        Question q = new Question(map);
+
+        beck.answer(q, "A");
+
+        assertEquals("умеренная депрессия", beck.getResult());
+    }
 }
